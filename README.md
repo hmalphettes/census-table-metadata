@@ -27,16 +27,16 @@ To get the data into the database:
 
 1. First clear out the existing database:
 
-    psql -d postgres -h localhost -U census -f census_metadata_drop.sql
+    psql -d postgres -h localhost -U census -d census -f census_metadata_drop.sql
 
 2. Then create the tables:
 
-    psql -d postgres -h localhost -U census -f census_metadata.sql
+    psql -d postgres -h localhost -U census -d census -f census_metadata.sql
 
 3. Then copy the data into those empty tables (note that this must be run as a
    postgres superuser):
 
-    sudo -u postgres psql -f census_metadata_load.sql
+    sudo -u postgres psql -d census -f census_metadata_load.sql
 
 ### process_merge.py ###
 
